@@ -10,18 +10,13 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="/about-us">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Requirements</a>
+                    <a class="nav-link" href="">Requirements</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Import Services</a></li>
-                        <li><a class="dropdown-item" href="#">Export Services</a></li>
-                        <li><a class="dropdown-item" href="#">Distribution</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact Us</a>
