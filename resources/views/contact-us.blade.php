@@ -1,8 +1,10 @@
 @extends('base')
 @section('title','Contact Us')
+@section('stylesheets')
+
 @section('body')
     <x-assets.navbar/>
-    <div class="container mt-4 mb-4">
+    <div class="container mt-5 mb-5 text-dark">
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -52,41 +54,42 @@
                 </form>
             </div>
             <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">Contact Us</h4>
-                <form class="" novalidate>
+                <h4 class="display-6 mb-5">Have Questions? Contact Us</h4>
+                <form method="post" action="/contact-us" id="contactForm">
+                    @csrf
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="row g-3 mb-4">
-                        <div class="col-sm-6">
-                            <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="phone" class="form-label">Phone</label>
-{{--                            <x-forms.phone-code-select />--}}
-                            <input type="text" class="form-control" id="lastName" placeholder="+91" value="">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="">
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="exampleFormControlTextarea1" class="form-label">Your message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                        </div>
-
+                        <x-forms.input-field-in-row className="col-sm-6" type="text" label="First Name" placeholder="" name="firstName"/>
+                        <x-forms.input-field-in-row className="col-sm-6" type="text" label="Last Name" placeholder="" name="lastName"/>
+                        <x-forms.input-field-in-row className="col-sm-12" label="Email" placeholder="" name="email"/>
+                        <x-forms.input-field-in-row className="col-sm-12" label="Phone" placeholder="+91" name="phone"/>
+                        <x-forms.input-field-in-row className="col-sm-12" label="Location" placeholder="" name="location"/>
+                        <x-forms.text-area-field className="col-sm-12" label="Your message" name="msg" placeholder="Optional"/>
                     </div>
-                    <button class="btn btn-danger btn-md" type="submit">Submit</button>
+
+                <button class="g-recaptcha btn btn-danger btn-md" data-sitekey="6Lc_eFUoAAAAAKKcCgVQyi5FzhIHug9vLpGa7LKW" data-callback='onSubmit' data-action='submit'>Submit</button>
                 </form>
+
             </div>
     </div>
-        <hr>
+        <hr class="w-100">
     <x-assets.footer/>
+        <script>
+            function onSubmit(token) {
+                document.getElementById("contactForm").submit();
+            }
+            document.getElementsByClassName('g-recaptcha')[0].addEventListener('click',onSubmit)
+        </script>
+@endsection
+
+@section('scripts')
+            <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection

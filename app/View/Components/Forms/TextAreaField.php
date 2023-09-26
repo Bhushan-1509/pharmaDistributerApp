@@ -11,9 +11,15 @@ class TextAreaField extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $className = null;
+    public $label = null;
+    public $name = null;
+    public function __construct($className,$label,$name)
     {
         //
+        $this->className = $className;
+        $this->label = $label;
+        $this->name = $name;
     }
 
     /**

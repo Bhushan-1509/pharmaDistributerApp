@@ -1,19 +1,22 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class InputFieldInRow extends Component
+class Alert extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $className,string $name, string $type)
+    public $color;
+    public $text;
+    public function __construct($color,$text)
     {
-
+        $this->color = $color;
+        $this->text  = $text;
     }
 
     /**
@@ -23,6 +26,6 @@ class InputFieldInRow extends Component
      */
     public function render()
     {
-        return view('components.forms.input-field-in-row');
+        return view('components.alert');
     }
 }

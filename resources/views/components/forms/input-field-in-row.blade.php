@@ -1,4 +1,11 @@
+@props([
+      "className" => "",
+     "label" => "",
+     "type" => "",
+     "name" => "",
+     "placeholder" => ""
+])
 <div class="{{ $className }}">
-    <label for="firstName" class="form-label">First name</label>
-    <input type="{{ $type }}" class="form-control" id="firstName" placeholder="" value="" name="{{ $name }}">
+    <label class="form-label">{{ $label }}</label>
+    <input type="{{ $type }}" class="form-control" " value="" name="{{ $name }}" placeholder="{{ $placeholder }}">
 </div>

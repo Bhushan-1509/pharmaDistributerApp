@@ -11,9 +11,12 @@ class Card extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $heading;
+    public $content;
+    public function __construct($heading,$content)
     {
-        //
+        $this->heading = $heading;
+        $this->content = $content;
     }
 
     /**

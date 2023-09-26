@@ -27,3 +27,5 @@ Route::get('/services',function(){
 Route::get('/contact-us',function(){
     return view('contact-us');
 });
+
+Route::post('/contact-us',[\App\Http\Controllers\ContactUsController::class,'handle']);

@@ -12,16 +12,15 @@
             <a type="button" class="btn btn-primary btn-md" data-bs-toggle="button">Read More</a>
         </div>
     </div>
-   <div class="container mb-4">
+   <div class="container mb-5">
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
            <div class="col">
-               <x-card/>
+               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div><div class="col">
-               <x-card/>
+               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div><div class="col">
-               <x-card/>
+               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div>
-
        </div>
    </div>
     <hr>

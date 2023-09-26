@@ -4,16 +4,19 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class assets.Navbar extends Component
+class WideCard extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public $text;
+    public $btnName;
+    public function __construct($text,$btnName)
     {
-        //
+        $this->text = $text;
+        $this->btnName = $btnName;
     }
 
     /**
@@ -23,6 +26,6 @@ class assets.Navbar extends Component
      */
     public function render()
     {
-        return view('components.assets.-navbar');
+        return view('components.wide-card');
     }
 }
