@@ -1,5 +1,8 @@
 @extends('base')
 @section('title','Lifecare Supportive Solution')
+@section('stylesheets')
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/carousel.css') }}">
+@endsection
 @section('body')
     <x-assets.navbar/>
     <x-carousel/>
@@ -15,14 +18,17 @@
    <div class="container mb-5">
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
            <div class="col">
-               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
+               <x-wide-card btnName="View" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div><div class="col">
-               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
+               <x-wide-card btnName="View" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div><div class="col">
-               <x-wide-card btnName="view" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
+               <x-wide-card btnName="View" text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."/>
            </div>
        </div>
    </div>
+    <div class="container md-5 text-center">
+        <button class="btn btn-danger">View More</button>
+    </div>
     <hr>
     <x-assets.footer/>
 @endsection

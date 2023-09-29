@@ -25,7 +25,12 @@ Route::get('/services',function(){
 });
 
 Route::get('/contact-us',function(){
-    return view('contact-us');
+    return view('contact-us',[
+        'class' => 'none col-sm-12 ',
+        'text' => ''
+    ]);
 });
 
 Route::post('/contact-us',[\App\Http\Controllers\ContactUsController::class,'handle']);
+
+Route::post('/send-mail',[\App\Http\Controllers\PHPMailerController::class,'sendMail']);

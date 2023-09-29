@@ -1,3 +1,0 @@
-<div class="alert alert-{{ $color }}" role="alert">
-    {{ $text }}
-</div>
