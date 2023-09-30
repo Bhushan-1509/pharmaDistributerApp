@@ -2,10 +2,11 @@
 @section('title','About Us')
 @section('body')
     <x-assets.navbar/>
-    <div class="container mt-3">
-       <div class="container-fluid">
-           <img src="images/about-us.png" alt="" class="img-fluid" style="object-fit: cover;">
-       </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/about-us.png" class="d-block w-100" alt="...">
+        </div>
     </div>
     <div class="container text-center mt-5 mb-5">
     <h2 class="display-5">We care your well being !</h2>

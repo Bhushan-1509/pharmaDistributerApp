@@ -5,7 +5,7 @@
         <p class="card-text">{{ $text }}</p>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-md btn-outline-secondary">{{ $btnName }}</button>
+                <button type="button" class="btn btn-md btn-outline-success">{{ $btnName }}</button>
             </div>
         </div>
     </div>

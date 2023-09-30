@@ -6,25 +6,27 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="images/carousel-1.jpg" alt="" class="bd-placeholder-img" width="100%" height="100%" style="object-fit: cover;height:75vh;">
+            <img src="images/carousel-3.jpg" alt="" class="bd-placeholder-img" width="100%" height="100%" style="object-fit: cover;height:75vh;">
             <div class="container">
-                <div class="carousel-caption text-start"></div>
+                <div class="carousel-caption text-end">
+                    <h1 class="text-dark">"Supplying Wellness Globally"</h1>
+                    <p><a class="btn btn-lg btn-danger" href="/about-us">Read More</a></p>
+                </div>
             </div>
         </div>
         <div class="carousel-item">
             <img src="images/carousel-2.jpg" alt="" class="bd-placeholder-img" width="100%" height="100%" style="object-fit: cover;height:75vh;">
             <div class="container">
-                <div class="carousel-caption">
+                <div class="carousel-caption text-start">
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-{{--            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>--}}
-            <img src="images/carousel-3.jpg" alt="" class="bd-placeholder-img" width="100%" height="100%" style="object-fit: cover;height:75vh;">
-
+            <img src="images/carousel-1.jpg" alt="" class="bd-placeholder-img" width="100%" height="100%" style="object-fit: cover;height:75vh;">
             <div class="container">
-                <div class="carousel-caption text-end">
-
+                <div class="carousel-caption text-start">
+                    <h1 class="text-dark">"Reliable Pharma Distribution, Always"</h1>
+                    <p><a class="btn btn-lg btn-success" href="/about-us">Read More</a></p>
                 </div>
             </div>
         </div>
