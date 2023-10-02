@@ -21,7 +21,7 @@
                     <h6>Reach Out to Us</h6>
                     <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2">New York</li>
+                            <li class="nav-item mb-2">Roha, Raigad</li>
                             <li class="nav-item mb-2"><i class="fa fa-phone"></i>&nbsp;+91 9930805353</li>
                             <li class="nav-item mb-2"><i class="fa fa-envelope"></i>&nbsp;&nbsp;purchase@lifecaressupportive.com</li>
                             <li class="nav-item mb-2"><i class="fa fa-envelope"></i>&nbsp;&nbsp;lifecaress2023@gmailcom</li>

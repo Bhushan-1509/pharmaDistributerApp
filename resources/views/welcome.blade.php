@@ -30,6 +30,7 @@
             <a type="button" href="/about-us" class="btn btn-primary btn-md">Read More</a>
         </div>
     </div>
+
     <?php
         use App\Models\Medicine;
         use Illuminate\Http\Request;
@@ -37,6 +38,9 @@
         $noOfMedicines = count($medicines);
     ?>
    <div class="container mb-5">
+       <div class="container text-center mt-4 mb-4">
+           <h3 class="display-6">Medicines available</h3>
+       </div>
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
            @if($noOfMedicines == 0)
 

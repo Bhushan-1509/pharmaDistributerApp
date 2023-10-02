@@ -1,3 +1,6 @@
+<div class="container" style="height:10vh;text-align: center;">
+    <h2 style="font-size:2.2rem;">Admin Panel</h2>
+</div>
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -44,4 +47,9 @@
             </x-primary-button>
         </div>
     </form>
+    <div class="block mt-4 justify-end flex items-center">
+        <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('welcome') }}">
+            {{ __('Go back to lifecare supportive') }}
+        </a>
+    </div>
 </x-guest-layout>

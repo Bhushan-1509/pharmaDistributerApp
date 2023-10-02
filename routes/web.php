@@ -17,10 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/about-us',function(){
     return view('about-us');
+});
+
+Route::get('/requirements',function(){
+    return view('namepatientimport');
 });
 
 Route::get('/services',function(){
@@ -39,36 +43,37 @@ Route::get('/contact-us',function(){
 
 Route::post('/contact-us',[\App\Http\Controllers\ContactUsController::class,'handle']);
 
-Route::get('/admin',function(){
-   return view('admin.index');
-})->name('admin');
+Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
-Route::get('/admin/medicines',function (){
-    return view('admin.medicines');
-});
-
-Route::get('/admin/medicines/edit/{id}',[\App\Http\Controllers\MedicineController::class,'adminEdit']);
-
-Route::post('/admin/medicines/edit/{id}',[\App\Http\Controllers\MedicineController::class,'updateMedicine']);
-
-Route::get('/admin/medicines/delete/{id}',[\App\Http\Controllers\MedicineController::class,'deleteMedicine']);
-
-
-Route::get('/admin/add-medicine',function (){
-    return view('admin.addmedicine',['class'=> 'none','text'=>'']);
-});
-
-
-Route::post('/admin/add-medicine',[\App\Http\Controllers\MedicineController::class,'handle']);
-
-Route::get('/dashboard', function () {
+Route::get('admin/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin',function(){
+        return redirect('/admin/login');
+    })->name('admin');
+
+    Route::get('/admin/medicines',function (){
+        return view('admin.medicines');
+    });
+
+    Route::get('/admin/medicines/edit/{id}',[\App\Http\Controllers\MedicineController::class,'adminEdit']);
+
+    Route::post('/admin/medicines/edit/{id}',[\App\Http\Controllers\MedicineController::class,'updateMedicine']);
+
+    Route::get('/admin/medicines/delete/{id}',[\App\Http\Controllers\MedicineController::class,'deleteMedicine']);
+
+
+    Route::get('/admin/add-medicine',function (){
+        return view('admin.addmedicine',['class'=> 'none','text'=>'']);
+    });
+
+    Route::post('/admin/add-medicine',[\App\Http\Controllers\MedicineController::class,'handle']);
+
+    Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

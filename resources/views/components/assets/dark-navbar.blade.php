@@ -14,7 +14,7 @@
                     <a class="nav-link mx-2" href="/about-us">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="/requirements">Requirements</a>
+                    <a class="nav-link mx-2" href="/requirements">Name Patient Import</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mx-2" href="/services">Services</a>
