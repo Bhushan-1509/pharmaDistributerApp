@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->bigIncrements('medicine_id');
             $table->string('medicine_name');
-            $table->string('description');
+            $table->text( 'description');
             $table->string("img_path")->nullable(true);
         });
     }

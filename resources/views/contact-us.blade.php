@@ -3,9 +3,8 @@
 @section('stylesheets')
 @endsection
 @section('body')
-    <x-assets.navbar/>
-    <div class="container mt-5 md-5">
-        <hr>
+    <x-assets.dark-navbar/>
+    <div class="container mt-4 md-5">
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -74,11 +73,11 @@
                 </form>
             </div>
         </div>
+    </div>
         <hr class="w-100">
     <x-assets.footer/>
 @endsection
 
 @section('scripts')
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
             <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection

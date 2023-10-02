@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Admin;
 
 use Illuminate\View\Component;
 
@@ -12,17 +12,19 @@ class WideCard extends Component
      * @return void
      */
     public $imgPath;
-    public $title;
     public $text;
+    public $title;
+    public $firstBtn;
+    public $secondBtn;
     public $id;
-    public $btnName;
-    public function __construct($imgPath,$title,$text,$btnName,$id)
+    public function __construct($imgPath,$text,$title,$firstBtn,$secondBtn)
     {
         $this->imgPath = $imgPath;
-        $this->title = $title;
         $this->text = $text;
-        $this->id = $id;
-        $this->btnName = $btnName;
+        $this->title = $title;
+        $this->firstBtn = $firstBtn;
+        $this->secondBtn = $secondBtn;
+
     }
 
     /**
@@ -32,6 +34,6 @@ class WideCard extends Component
      */
     public function render()
     {
-        return view('components.wide-card');
+        return view('components.admin.wide-card');
     }
 }
