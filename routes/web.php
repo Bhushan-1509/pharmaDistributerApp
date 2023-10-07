@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/admin/add-medicine',function (){
-        return view('admin.addmedicine',['class'=> 'none','text'=>'']);
+        return view('admin.addmedicine');
     });
 
     Route::post('/admin/add-medicine',[\App\Http\Controllers\MedicineController::class,'handle']);

@@ -1,160 +1,48 @@
 @extends('base')
 @section('title','Add medicine')
 @section('stylesheets')
-    <style>
-        *, *:before, *:after {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
-            color: #384047;
-        }
-
-        form {
-            max-width: 300px;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background: #f4f7f8;
-            border-radius: 8px;
-        }
-
-        h1 {
-            margin: 0 0 30px 0;
-            text-align: center;
-        }
-        input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="file"], input[type="url"], textarea, select{
-            background: rgba(255,255,255,0.1);
-            border: none;
-            font-size: 16px;
-            height: auto;
-            margin: 0;
-            outline: 0;
-            padding: 15px;
-            width: 100%;
-            background-color: #e8eeef;
-            color: #8a97a0;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-            margin-bottom: 30px;
-        }
-
-
-        select {
-            padding: 6px;
-            height: 32px;
-            border-radius: 2px;
-        }
-
-        button {
-            padding: 19px 39px 18px 39px;
-            color: #FFF;
-            background-color: #4bc970;
-            font-size: 18px;
-            text-align: center;
-            font-style: normal;
-            border-radius: 5px;
-            width: 100%;
-            border: 1px solid #3ac162;
-            border-width: 1px 1px 3px;
-            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-            margin-bottom: 10px;
-        }
-
-        fieldset {
-            margin-bottom: 30px;
-            border: none;
-        }
-
-        legend {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        label.light {
-            font-weight: 300;
-            display: inline;
-        }
-
-        .number {
-            background-color: #5fcf80;
-            color: #fff;
-            height: 30px;
-            width: 30px;
-            display: inline-block;
-            font-size: 0.8em;
-            margin-right: 4px;
-            line-height: 30px;
-            text-align: center;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-            border-radius: 100%;
-        }
-
-        @media screen and (min-width: 480px) {
-
-            form {
-                max-width: 480px;
-            }
-
-        }
-    </style>
 @endsection
 @section('body')
     <x-admin.dark-navbar/>
-    {{--    <div class="container mt-5">--}}
     @php
         use App\Models\Medicine;
         use Illuminate\Http\Request;
         $medicine = Medicine::where('medicine_id','=',intval(request()->route('id')))->first();
     @endphp
-    <div class="container">
-        <div class="col-sm-12 mt-2">
-            <div class="{{ $class }}">
-                {{ $text }}
-            </div>
-        </div>
-    </div>
     <div class="container mt-4">
-        <h1 class="display-6 text-center">Edit Medicine</h1>
-    </div>
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="mt-5" enctype="multipart/form-data">
-        @csrf
-        <hr>
-        <fieldset>
-            <legend class="display-6" style="font-size:1.2rem;"><span class="number">1</span> Basic Medicine info </legend>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="medicineName" value="{{ $medicine->medicine_name }}">
+       @if(request()->session()->has('status'))
+            <div class="col-sm-12 mt-2">
+                <div class="{{ $class }}">
+                    {{ $text }}
+                </div>
+            </div>
+       @endif
+        <form method="post" action="" class="" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3 mt-2">
+                <h6 class="display-6 text-center">Update medicine info</h6>
+            </div>
+            <div class="mb-4">
+                <label for="medicineName" class="form-label">Medicine Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your medicine name here......" name="medicineName" value="{{ $medicine->medicine_name }}">
+            </div>
             @if ($errors->has('medicineName'))
-                <span class="text-danger">{{ $errors->first('medicineName') }}</span>
+                <span class="text-danger col-sm-6">{{ $errors->first('firstName') }}</span>
             @endif
-        </fieldset>
-
-        <fieldset>
-            <legend class="display-6" style="font-size:1.2rem;"><span class="number">2</span>Info</legend>
-            <label for="bio">Brief Description:</label>
-            <textarea id="bio" name="desc" rows="6">{{ $medicine->description }}</textarea>
+            <div class="mb-4">
+                <label for="medicineDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="desc">{{ $medicine->description }}</textarea>
+            </div>
             @if ($errors->has('desc'))
-                <span class="text-danger">{{ $errors->first('desc') }}</span>
+                <span class="text-danger col-sm-6">{{ $errors->first('firstName') }}</span>
             @endif
-        </fieldset>
+            <div class="input-group mb-5">
+                <input type="file" class="form-control" id="inputGroupFile02" name="image">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
 
-        <fieldset class="mb-3">
-            <legend class="display-6" style="font-size:1.2rem;"><span class="number">3</span>Choose Image</legend>
-            <input class="form-control border" type="file" id="formFile" name="image">
-            @if ($errors->has('image'))
-                <span class="text-danger">{{ $errors->first('image') }}</span>
-            @endif
-        </fieldset>
-
-        <button type="submit" class="btn btn-success btn-lg">Update</button>
-    </form>
-
-    {{--    </div>--}}
+            <button class="btn btn-primary">Update medicine</button>
+        </form>
+    </div>
 @endsection
 

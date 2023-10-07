@@ -29,12 +29,13 @@ class MedicineController extends Controller
         $medicine->img_path = $filePath;
         $res = $medicine->save();
         if($res){
+            $request->session()->flash('status','success');
             return view('admin.addmedicine',['class'=>'alert alert-success text-center','text'=> 'Medicine added successfully !']);
         }
         else{
+            $request->session()->flash('status','failure');
             return view('admin.addmedicine',['class'=>'alert alert-danger text-center','text'=> 'Could not add medicine !']);
         }
-
     }
 
     public function showInfo(Request $request){
@@ -70,9 +71,11 @@ class MedicineController extends Controller
         }
         $res = $medicine->save();
         if($res) {
+            $request->session()->flash('status','success');
             return view('admin.editmedicine', ['class' => 'alert alert-success text-center', 'text' => 'Medicine updated successfully !']);
         }
         else{
+            $request->session()->flash('status','failure');
             return view('admin.editmedicine',['class'=>'alert alert-danger text-center','text'=> 'Could not update medicine !']);
         }
 
