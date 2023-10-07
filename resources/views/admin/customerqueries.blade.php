@@ -3,9 +3,9 @@
 @section('stylesheets')
 @endsection
 @php
-    use App\Models\CustomerQuery;
-    $queries = CustomerQuery::paginate(15);
-    $nOfQueries = $queries->count();
+//    use App\Models\CustomerQuery;
+//    $queries = CustomerQuery::paginate(15);
+//    $nOfQueries = $queries->count();
 @endphp
 @section('body')
     <x-admin.dark-navbar/>
@@ -17,17 +17,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Do you really want to delete this query ?
+                    <form action="{{ route('delete_customer_query') }}" method="post" name="deleteConfirmation">
+                        @csrf
+                        <h6 class="">Are you sure you want to delete this query?</h6>
+                        <input type="hidden" value="" id="modalHiddenInput" name="paramVal">
+                    </form>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="modalDeleteBtn">Delete</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <h1 class="mt-4 display-6 text-center">Customer Queries</h1>
+    <div class="container mb-5">
+        <h1 class="mt-4 display-6 text-center mb-4">Customer Queries</h1>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get">
             <div class="row">
                 <div class="col-lg-8 col-sm-8 col-md-8 mb-3">
@@ -35,6 +39,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 col-md-4">
                     <button class="btn btn-secondary">Search</button>
+                    <a href="{{ route('customer_queries') }}" class="btn btn-success">Reset</a>
                 </div>
             </div>
         </form>
@@ -51,7 +56,7 @@
             </tr>
             </thead>
             <tbody>
-                @for($i = 0; $i < $nOfQueries; $i++)
+                @for($i = 0; $i < $noOfQueries; $i++)
                     <tr>
                         <th scope="row">{{$i + 1}}</th>
                         <td> {{$queries[$i]->first_name}}</td>
@@ -59,13 +64,30 @@
                         <td> {{$queries[$i]->email}}</td>
                         <td> {{$queries[$i]->phone}}</td>
                         <td> {{$queries[$i]->msg}}</td>
-                        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#queryDeleteModal">
-                                Mark as resolved
+                        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#queryDeleteModal" value="{{ $queries[$i]->email }}" onclick="showModalAlert(this.value)">
+                                <i class="fa-solid fa-trash"></i>
                             </button></td>
                     </tr>
                 @endfor
             </tbody>
         </table>
-        {{ $queries->links() }}
+        @if(!(request()->session()->has('search')))
+            {{ $queries->links() }}
+        @endif
+        @php
+            if(request()->session()->has('search')){
+                request()->session()->forget('search');
+            }
+        @endphp
     </div>
+    <script>
+        function showModalAlert($val){
+            let email = $val;
+            document.getElementById('modalHiddenInput').value = email;
+
+        }
+        document.getElementById('modalDeleteBtn').addEventListener('click',()=>{
+            document.forms[0].submit();
+        });
+    </script>
 @endsection

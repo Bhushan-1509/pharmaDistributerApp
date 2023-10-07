@@ -70,7 +70,8 @@ Route::middleware('auth')->group(function () {
     })->name('admin-medicine-add-get');
 
     Route::post('/admin/add-medicine',[\App\Http\Controllers\MedicineController::class,'handle'])->name('admin-medicine-add-post');
-    Route::get('admin/customer-queries',[\App\Http\Controllers\CustomerQueryController::class, 'showQueries']);
+    Route::get('admin/customer-queries',[\App\Http\Controllers\CustomerQueryController::class, 'showQueries'])->name('customer_queries');
+    Route::post('admin/customer-queries',[\App\Http\Controllers\CustomerQueryController::class, 'deleteQuery'])->name('delete_customer_query');
     Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
