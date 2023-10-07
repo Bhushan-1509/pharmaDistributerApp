@@ -16,6 +16,13 @@ class MedicineController extends Controller
             'medicineName' => 'required|string|max:255',
             'desc' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp'
+        ],[
+            'medicineName.required' => 'Medicine name is required',
+            'medicineName.string' => 'medicine name must be text',
+            'medicineName.max' => 'medicine name can have maximum 255 characters',
+            'desc.required' => 'Description field is required',
+            'image.required' => 'Medicine image is required',
+            'image.mimes' => 'Medicine image can be of type jpg,jpeg,png,webp'
         ]);
         $medicineName = $request->post('medicineName');
         $desc = $request->post('desc');
@@ -29,14 +36,15 @@ class MedicineController extends Controller
         $medicine->img_path = $filePath;
         $res = $medicine->save();
         if($res){
-            $request->session()->flash('status','success');
+            $request->session()->flash('st','success');
             return view('admin.addmedicine',['class'=>'alert alert-success text-center','text'=> 'Medicine added successfully !']);
         }
         else{
-            $request->session()->flash('status','failure');
+            $request->session()->flash('st','failure');
             return view('admin.addmedicine',['class'=>'alert alert-danger text-center','text'=> 'Could not add medicine !']);
         }
-    }
+        dd(request()->session()->all());
+   }
 
     public function showInfo(Request $request){
         $request->session()->put('id',intval($request->route('id')));
@@ -53,6 +61,12 @@ class MedicineController extends Controller
             'medicineName' => 'required|string|max:255',
             'desc' => 'required',
             'image' => 'mimes:jpg,jpeg,png,webp'
+        ],[
+            'medicineName.required' => 'Medicine name is required',
+            'medicineName.string' => 'medicine name must be text',
+            'medicineName.max' => 'medicine name can have maximum 255 characters',
+            'desc.required' => 'Description field is required',
+            'image.mimes' => 'Medicine image can be of type jpg,jpeg,png,webp'
         ]);
         $medicineName = $request->post('medicineName');
         $desc = $request->post('desc');
@@ -71,11 +85,11 @@ class MedicineController extends Controller
         }
         $res = $medicine->save();
         if($res) {
-            $request->session()->flash('status','success');
+            $request->session()->flash('st','success');
             return view('admin.editmedicine', ['class' => 'alert alert-success text-center', 'text' => 'Medicine updated successfully !']);
         }
         else{
-            $request->session()->flash('status','failure');
+            $request->session()->flash('st','failure');
             return view('admin.editmedicine',['class'=>'alert alert-danger text-center','text'=> 'Could not update medicine !']);
         }
 

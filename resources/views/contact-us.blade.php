@@ -35,32 +35,36 @@
                 <h4 class="display-6 mb-5">Have Questions? Contact Us</h4>
                 <form method="post" action="/contact-us" id="contactForm">
                     @csrf
+                    <div class="col-sm-12 col-lg-12 col-md-12">
+                        @if(request()->session()->has('st'))
+                            <div class="{{ $class }}">
+                                {{ $text }}
+                            </div>
+                        @endif
+                    </div>
                     <div class="col-sm-12">
-                        <div class="{{ $class }}">
-                            {{ $text }}
-                        </div>
                     </div>
                     <div class="row g-3 mb-4">
                         <x-forms.input-field-in-row className="col-sm-6" type="text" label="First Name" placeholder="" name="firstName"/>
                         <x-forms.input-field-in-row className="col-sm-6" type="text" label="Last Name" placeholder="" name="lastName"/>
-                        @if ($errors->has('firstName'))
-                            <span class="text-danger col-sm-6">{{ $errors->first('firstName') }}</span>
-                        @endif
-                        @if ($errors->has('lastName'))
-                            <span class="text-danger col-sm-6">{{ $errors->first('lastName') }}</span>
-                        @endif
+                            @error('firstName')
+                                <span class="text-danger col-sm-6">{{ $message }}</span>
+                            @enderror
+                            @error('lastName')
+                                <span class="text-danger col-sm-6">{{ $message }}</span>
+                            @enderror
                         <x-forms.input-field-in-row className="col-sm-12" label="Email" placeholder="" name="email"/>
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
+                            @error('email')
+                                <span class="text-danger col-sm-6">{{ $message }}</span>
+                            @enderror
                         <x-forms.input-field-in-row className="col-sm-12" label="Phone" placeholder="+91" name="phone"/>
-                              @if ($errors->has('phone'))
-                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
-                              @endif
+                            @error('phone')
+                                <span class="text-danger col-sm-6">{{ $message }}</span>
+                            @enderror
                         <x-forms.input-field-in-row className="col-sm-12" label="Location" placeholder="" name="location"/>
-                                @if ($errors->has('location'))
-                                    <span class="text-danger">{{ $errors->first('location') }}</span>
-                                @endif
+                            @error('location')
+                                <span class="text-danger col-sm-6">{{ $message }}</span>
+                            @enderror
                         <x-forms.text-area-field className="col-sm-12" label="Your message" name="msg" placeholder="Optional"/>
                         <div class="col-sm-12">
                             <div class="form-group">

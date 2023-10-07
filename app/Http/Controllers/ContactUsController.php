@@ -17,6 +17,16 @@ class ContactUsController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'location' => 'required'
+        ],[
+            'firstName.required' => 'First name field is required',
+            'firstName.max' => ' First name field can have maximum 255 characters',
+            'lastName.required' => 'Last name field is required',
+            'lastName.max' => 'Last name field can have maximum 255 characters',
+            'email.email' => 'You entered invalid email',
+            'email.required' => 'Email field is required',
+            'phone.required' => 'Phone field is required',
+            'phone.regex' => 'You entered invalid phone number',
+            'location.required' => 'Location field is required'
         ]);
         $captchaRes = $request->post('g-recaptcha-response');
         $httpRes = "";
@@ -42,16 +52,17 @@ class ContactUsController extends Controller
             $query->msg = $request->msg;
             $result = $query->save();
             if($result){
+                request()->session()->flash('st','success');
                 return view('contact-us', [
                     'class' => 'alert alert-success col-sm-12',
-                    'text' => 'Your query posted sucessfully ! we will respond to your query'
+                    'text' => 'Your query posted successfully ! we will respond to your query'
                 ]);
 
             }
 
             }
         else {
-
+            request()->session()->flash('st','failure');
             return view('contact-us', [
                 'class' => 'alert alert-danger col-sm-12',
                 'text' => 'Could not post your query ! Try after some time.'

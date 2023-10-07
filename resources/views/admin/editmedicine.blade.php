@@ -10,7 +10,7 @@
         $medicine = Medicine::where('medicine_id','=',intval(request()->route('id')))->first();
     @endphp
     <div class="container mt-4">
-       @if(request()->session()->has('status'))
+       @if(request()->session()->has('st'))
             <div class="col-sm-12 mt-2">
                 <div class="{{ $class }}">
                     {{ $text }}
