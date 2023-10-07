@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg p-0 m-0 navbar-dark bg-dark navbar-l">
     <div class="container-fluid" style="">
-        <a class="navbar-brand fst-italic" href="/" style="font-size:1.45rem;">Lifecare Supportive Solution</a>
+        <a class="navbar-brand fst-italic" href="/" style="font-size:1.45rem;">Lifecare Supportive Solutions</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -26,6 +26,7 @@ class ContactUsController extends Controller
             'email.required' => 'Email field is required',
             'phone.required' => 'Phone field is required',
             'phone.regex' => 'You entered invalid phone number',
+            'phone.min' => 'Phone number should be of 10 digits',
             'location.required' => 'Location field is required'
         ]);
         $captchaRes = $request->post('g-recaptcha-response');

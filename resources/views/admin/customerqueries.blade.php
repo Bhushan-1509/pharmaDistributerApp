@@ -3,9 +3,6 @@
 @section('stylesheets')
 @endsection
 @php
-//    use App\Models\CustomerQuery;
-//    $queries = CustomerQuery::paginate(15);
-//    $nOfQueries = $queries->count();
 @endphp
 @section('body')
     <x-admin.dark-navbar/>
