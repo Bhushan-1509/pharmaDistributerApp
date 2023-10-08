@@ -31,12 +31,12 @@
         </div>
     </div>
 
-    <?php
+    @php
         use App\Models\Medicine;
         use Illuminate\Http\Request;
         $medicines = Medicine::all();
         $noOfMedicines = count($medicines);
-    ?>
+    @endphp
    <div class="container mb-5">
        <div class="container text-center mt-4 mb-4">
            <h3 class="display-6">Medicines available</h3>
@@ -45,7 +45,14 @@
            @if($noOfMedicines == 0)
 
            @endif
-          @if($noOfMedicines > 3)
+           @if($noOfMedicines < 3 and $noOfMedicines >= 1)
+               @foreach($medicines as $medicine)
+                   <div class="col-12 col-md-6 col-lg-4">
+                       <x-wide-card imgPath="{{ url($medicine->img_path) }}" btnName="View" text="{{ $medicine->description }}}" title="{{ $medicine->medicine_name }}" id="{{ $medicine->medicine_id }}"/>
+                   </div>
+               @endforeach
+           @endif
+          @if($noOfMedicines >= 3)
                @for($i = 0; $i < 3; $i++)
                    <div class="col-12 col-md-6 col-lg-4">
                        <x-wide-card imgPath="{{ url($medicines[$i]->img_path) }}" btnName="View" text="{{ $medicines[$i]->description }}}" title="{{ $medicines[$i]->medicine_name }}" id="{{ $medicines[$i]->medicine_id }}"/>
@@ -54,17 +61,7 @@
                    <div class="container md-5 text-center mt-4">
                        <a href="/medicines" class="btn btn-danger">View More</a>
                    </div>
-           @else
-               @foreach($medicines as $medicine)
-                   <div class="col-12 col-md-6 col-lg-4">
-                       <x-wide-card imgPath="{{ url($medicine->img_path) }}" btnName="View" text="{{ $medicine->description }}}" title="{{ $medicine->medicine_name }}" id="{{ $medicine->medicine_id }}"/>
-                   </div>
-                   @endforeach
-                   <div class="container md-5 text-center mt-4">
-                       <a href="/medicines" class="btn btn-danger">View More</a>
-                   </div>
-          @endif
-
+               @endif
        </div>
    </div>
 

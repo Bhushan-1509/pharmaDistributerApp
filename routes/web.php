@@ -43,7 +43,7 @@ Route::get('/contact-us',function(){
 
 Route::post('/contact-us',[\App\Http\Controllers\ContactUsController::class,'handle']);
 
-Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
+//Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
 Route::get('admin/dashboard', function () {
     return view('dashboard');
@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/admin/add-medicine',function (){
-        return view('admin.addmedicine');
+        return view('admin.addmedicine',['class'=>'d-none', 'text'=>'']);
     })->name('admin-medicine-add-get');
 
     Route::post('/admin/add-medicine',[\App\Http\Controllers\MedicineController::class,'handle'])->name('admin-medicine-add-post');

@@ -43,8 +43,7 @@ class MedicineController extends Controller
             $request->session()->flash('st','failure');
             return view('admin.addmedicine',['class'=>'alert alert-danger text-center','text'=> 'Could not add medicine !']);
         }
-        dd(request()->session()->all());
-   }
+}
 
     public function showInfo(Request $request){
         $request->session()->put('id',intval($request->route('id')));
