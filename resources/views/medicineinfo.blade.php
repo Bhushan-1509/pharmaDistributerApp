@@ -19,29 +19,26 @@
         }
         div#social-links {
             margin: 0 auto;
-            max-width: 500px;
+            max-width: 36.5vw;
         }
         div#social-links ul li {
             display: inline-block;
         }
         div#social-links ul li a {
-            padding: 20px;
-            border: 1px solid #ccc;
-            margin: 1px;
-            font-size: 30px;
+            padding: 0.8vw;
+            border: 1px solid #dedada;
+            margin: 0.3vw;
+            font-size: 1.5rem;
             color: #222;
             background-color: #ccc;
         }
-
+        div#social-links ul li a img{
+        }
     </style>
 @endsection
 @section('body')
     <x-assets.dark-navbar/>
     <div class="container mt-5 mb-5">
-{{--        <div class="container mt-4">--}}
-{{--            <h2 class="mb-5 text-center">Laravel Social Share Buttons Example</h2>--}}
-{{--            {!! $shareComponent !!}--}}
-{{--        </div>--}}
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-6 border-end">
@@ -55,6 +52,9 @@
                     </div>	</div>
                 <div class="col-md-6">
                     <div class="p-3 right-side">
+                        <div class="col-12 col-sm-12 col-md-12 mt-5 mb-5 text-center px-5">
+                            {!! $shareComponent !!}
+                        </div>
                         <div class="d-flex justify-content-between align-items-center">	<h3 class="display-6">{{ $medicine->medicine_name }}</h3>	<span class="heart"><i class='bx bx-heart'></i></span>	</div>
                         <div class="mt-2 pr-3 content">
                             <p style="font-size:1.1rem;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $medicine->description }}</p>	</div>
@@ -66,11 +66,11 @@
                                 <i class='bx bxs-star' ></i>
                                 <i class='bx bx-star' ></i>
                             </div>
-
                         </div>
                         <div class="mt-5"><div class="colors">	<ul id="marker">	<li id="marker-1"></li>	<li id="marker-2"></li>	<li id="marker-3"></li>	<li id="marker-4"></li>	<li id="marker-5"></li>	</ul>	</div>	</div>	<div class="buttons d-flex flex-row mt-5 gap-3">
                             <a class="btn btn-outline-dark" href="/medicines">More medicines</a>
                             <a class="btn btn-dark" href="{{ url()->previous() }}">Go back</a>	</div>
+
                         <div class="search-option">	<i class='bx bx-search-alt-2 first-search'></i>
                             <div class="inputs">
                                 <input type="text" name="">

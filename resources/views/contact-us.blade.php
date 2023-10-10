@@ -20,7 +20,7 @@
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
                             <h6 class="my-0"><i class="fa-solid fa-envelope fa-lg"></i></h6>
-                            <p class="text-body-secondary"><a href="mailto:purchase@lifecaressupportive.com"><p class="text-secondary">lifecaress2023@gmailcom</p></a></p>
+                            <p class="text-body-secondary"><a href="mailto:purchase@lifecaressupportive.com"><p class="text-secondary">lifecaress2023@gmail.com</p></a></p>
                         </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between bg-body-tertiary">

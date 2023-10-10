@@ -47,17 +47,14 @@ class MedicineController extends Controller
 
     public function showInfo(Request $request){
         $request->session()->put('id',intval($request->route('id')));
-//        $shareComponent = \Share::page(
-//            url()->current(),
-//            'Have a look at this medicine !',
-//        )
-//            ->facebook()
-//            ->twitter()
-//            ->linkedin()
-//            ->telegram()
-//            ->whatsapp()
-//            ->reddit();
-        return view('medicineinfo');
+        $shareComponent = \Share::page(
+            url()->current(),
+            'Have a look at this medicine !',
+        )
+            ->twitter()
+            ->linkedin()
+            ->whatsapp();
+        return view('medicineinfo',['shareComponent' => $shareComponent]);
     }
 
     public function adminEdit(Request $request){
