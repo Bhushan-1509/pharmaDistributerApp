@@ -72,7 +72,6 @@
                             </div>
                         </div>
                     </div>
-
                     <button class="btn btn-danger btn-md">Submit</button>
                 </form>
             </div>
@@ -83,5 +82,5 @@
 @endsection
 
 @section('scripts')
-            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection

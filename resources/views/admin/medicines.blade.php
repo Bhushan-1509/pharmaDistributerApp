@@ -21,6 +21,7 @@
             document.getElementById('modalDeleteBtn').setAttribute('value',obj.value);
         }
     </script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 @endsection
 @section('body')
     <x-admin.dark-navbar/>

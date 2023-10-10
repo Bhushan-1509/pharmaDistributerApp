@@ -1,6 +1,7 @@
 @extends('base')
 @section('title','Add medicine')
 @section('stylesheets')
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 @endsection
 @section('body')
     <x-admin.dark-navbar/>

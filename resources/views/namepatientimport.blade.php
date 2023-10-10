@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <b><p class="display-6" style="font-weight:400;">What is unauthorized medicine?</p></b>
-                    <p class="justify-content-center" style="font-size:1.1rem">
-                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;The medicines which are not yet authorized or available for selling in your home country are known as unauthorized/unapproved medicine. There are many lifesaving medicines which are approved only in few countries, but through the Name patient import program such type of medicine can also be made available in your country for better treatment.
+                    <p class="justify-content-center" style="font-size:1.1rem; text-align:justify;">
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;The medicines which are not yet authorized or available for selling in your home country are known as unauthorized medicine. There are many lifesaving medicines which are approved only in few countries, but through the Name patient import program such type of medicine can also be made available in your country for better treatment.
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -26,14 +26,14 @@
                         <li>
                     <div class="row mt-4">
                         <h4 class="display-6" style="font-size: 1.4rem;font-weight: 400;">Doctor’s Prescription</h4>
-                        <p style="font-size:1.1rem;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We would require a prescription from a Registered Medical Practitioner Stating Product name, dosage, duration of treatment and diagnosis</p>
+                        <p style="font-size:1.1rem;text-align:justify;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We would require a prescription from a Registered Medical Practitioner Stating Product name, dosage, duration of treatment and diagnosis</p>
                     </div>
                         </li>
                         <li>
                     <div class="row">
-                        <h4 class="display-6" style="font-size: 1.4rem;font-weight: 400;">Patient’s Medical history
+                        <h4 class="display-6" style="font-size: 1.4rem;font-weight: 400; text-align:justify;">Patient’s Medical history
                         </h4>
-                        <p style="font-size:1.1rem;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We would require all test reports and Medical reports of the patient for the last 3 months.
+                        <p style="font-size:1.1rem; text-align:justify;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We would require all test reports and Medical reports of the patient for the last 3 months.
                         </p>
                     </div>
                         </li>
@@ -41,7 +41,7 @@
                     <div class="row">
                         <h4 class="display-6" style="font-size: 1.4rem;font-weight: 400;">Patient’s Identity card
                         </h4>
-                        <p style="font-size:1.1rem;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We will require a scanned copy of the Patient’s identity card and proof of residence to initiate the documentation process. You can use a copy of Passport, Driving License, Employee ID card or any Photo ID document as your Identity card.
+                        <p style="font-size:1.1rem;text-align:justify;"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;We will require a scanned copy of the Patient’s identity card and proof of residence to initiate the documentation process. You can use a copy of Passport, Driving License, Employee ID card or any Photo ID document as your Identity card.
                         </p>
 
                     </div>
