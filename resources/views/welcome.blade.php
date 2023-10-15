@@ -38,14 +38,16 @@
         $noOfMedicines = count($medicines);
     @endphp
    <div class="container mb-5">
-       <div class="container text-center mt-4 mb-4">
-       </div>
+       @if($noOfMedicines != 0)
+           <div class="container text-center mt-4 mb-4">
+               <h3 class="display-6">Medicines available</h3>
+           </div>
+       @endif
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
            @if($noOfMedicines == 0)
 
            @endif
            @if($noOfMedicines < 3 and $noOfMedicines >= 1)
-                   <h3 class="display-6">Medicines available</h3>
                @foreach($medicines as $medicine)
                    <div class="col-12 col-md-6 col-lg-4">
                        <x-wide-card imgPath="{{ url($medicine->img_path) }}" btnName="View" text="{{ $medicine->description }}}" title="{{ $medicine->medicine_name }}" id="{{ $medicine->medicine_id }}"/>
@@ -53,7 +55,6 @@
                @endforeach
            @endif
           @if($noOfMedicines >= 3)
-                   <h3 class="display-6">Medicines available</h3>
                @for($i = 0; $i < 3; $i++)
                    <div class="col-12 col-md-6 col-lg-4">
                        <x-wide-card imgPath="{{ url($medicines[$i]->img_path) }}" btnName="View" text="{{ $medicines[$i]->description }}}" title="{{ $medicines[$i]->medicine_name }}" id="{{ $medicines[$i]->medicine_id }}"/>

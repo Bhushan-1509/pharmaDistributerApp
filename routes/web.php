@@ -37,6 +37,8 @@ Route::get('/medicines',function(){
 
 Route::get('/medicines/{id}',[\App\Http\Controllers\MedicineController::class,'showInfo']);
 
+Route::get('/medicines/search',[\App\Http\Controllers\MedicineController::class,'searchMedicine']);
+
 Route::get('/contact-us',function(){
     return view('contact-us',['class' => 'none','text' => '']);
 });
@@ -44,6 +46,13 @@ Route::get('/contact-us',function(){
 Route::post('/contact-us',[\App\Http\Controllers\ContactUsController::class,'handle']);
 
 //Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
+Route::get('/not-found',function(){
+   return view('errors.404');
+});
+
+Route::get('/no-result',function(){
+   return view('noresults');
+});
 
 Route::get('admin/dashboard', function () {
     return view('dashboard');

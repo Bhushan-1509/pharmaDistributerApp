@@ -2,7 +2,7 @@
     <footer class="py-5">
         <div class="row">
             <div class="col-6 col-md-2 mb-3" style="margin:auto; text-align: center;">
-                <img src="{{url('images/Lifecare.jpg')}}" alt="" class="img-fluid">
+                <img src="{{asset('images/Lifecare.jpg')}}" alt="" class="img-fluid">
             </div>
             <div class="col-6 col-md-2" style="margin:auto;" >
                 <h5>Section</h5>

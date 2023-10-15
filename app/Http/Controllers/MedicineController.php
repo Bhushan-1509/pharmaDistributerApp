@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Faker\Core\File;
@@ -46,7 +45,8 @@ class MedicineController extends Controller
 }
 
     public function showInfo(Request $request){
-        $request->session()->put('id',intval($request->route('id')));
+        $id = $request->route('id');
+        $medicine = Medicine::where('medicine_id','=',$id)->first();
         $shareComponent = \Share::page(
             url()->current(),
             'Have a look at this medicine !',
@@ -54,7 +54,13 @@ class MedicineController extends Controller
             ->twitter()
             ->linkedin()
             ->whatsapp();
-        return view('medicineinfo',['shareComponent' => $shareComponent]);
+
+        if($medicine){
+            return view('medicineinfo',['shareComponent' => $shareComponent,'medicine' => $medicine]);
+        }
+        else{
+            return view('errors.404');
+        }
     }
 
     public function adminEdit(Request $request){
@@ -114,5 +120,16 @@ class MedicineController extends Controller
         unlink(public_path($imgFile));
         $res = $medicine->delete();
         return redirect('admin/medicines');
+    }
+
+    public function searchMedicine(Request $request){
+        $searchParameter =  $request->query('q');
+        $medicines = Medicine::query( 'LOWER(`medicine_name`)','LIKE', '%'. strtolower(trim($searchParameter)) . '%')->get();
+        if(!$medicines){
+            return view('noresults');
+        }
+        else{
+            return view('medicineresult', ['medicines' => $medicines]);
+        }
     }
 }

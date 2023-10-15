@@ -5,7 +5,7 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/doctor-talking-to-patient.jpg" class="d-block w-100" style="height:60vh;object-fit: cover;" alt="...">
+                <img src="{{ asset('images/doctor-talking-to-patient.jpg') }}" class="d-block w-100" style="height:60vh;object-fit: cover;" alt="...">
             </div>
         </div>
         <div class="container text-center mt-4">

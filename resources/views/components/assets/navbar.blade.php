@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg p-0 m-0">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{{ url('images/Lifecare.png') }}" alt="Lifecare Logo" widht="60" height="70"></a>
+        <a class="navbar-brand" href="/"><img src="{{ asset('images/Lifecare.png') }}" alt="Lifecare Logo" widht="60" height="70"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" method="get" action="medicines/search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" required>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <ul class="navbar-nav ms-auto ">

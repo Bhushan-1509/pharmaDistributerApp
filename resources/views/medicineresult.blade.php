@@ -18,13 +18,6 @@
 @endsection
 @section('body')
     <x-assets.dark-navbar/>
-    @php
-    use App\Models\Medicine;
-    use Illuminate\Http\Request;
-    $medicines = Medicine::paginate(12);
-
-    @endphp
-{{--    <hr>--}}
     <div class="container mt-3">
         <div class="container text-center">
             <h6 class="display-5">Medicines</h6>
@@ -35,8 +28,8 @@
                     <x-wide-card imgPath="{{ asset($medicine->img_path) }}" btnName="View" text="{{ $medicine->description }}}" title="{{ $medicine->medicine_name }}" id="{{ $medicine->medicine_id }}"/>
                 </div>
             @endforeach
-            {{ $medicines->links() }}
         </div>
+        <a href="{{ url()->previous() }}}" class="btn btn-primary">Go back</a>
     </div>
     <hr>
     <x-assets.footer/>

@@ -1,10 +1,3 @@
-@php
-    use App\Models\Medicine;
-    use Illuminate\Http\Request;
-    $medicine = Medicine::where('medicine_id','=',intval(session('id')))->first();
-    request()->session()->forget(['id']);
-@endphp
-
 @extends('base')
 @section('title','Medicines')
 @section('stylesheets')
@@ -44,7 +37,7 @@
                 <div class="col-md-6 border-end">
                     <div class="d-flex flex-column justify-content-center">
                         <div class="main_image">
-                            <img src="{{ url($medicine->img_path) }}" id="ge" class="img-fluid" style="object-fit: cover;"></div>
+                            <img src="{{ asset($medicine->img_path) }}" id="ge" class="img-fluid" style="object-fit:contain;"></div>
                         <div class="thumbnail_images">
                             <ul id="thumbnail">
                             </ul>
